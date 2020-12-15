@@ -1,0 +1,26 @@
+{% extends 'myapp/base.html' %} {% block content %}
+
+<div class="row">
+  <div class="col-md-6">
+    <br />
+    <h2>ログイン</h2>
+    <br />
+
+    <form action="" method="post">
+      <!-- 通信状の安全性 -->
+      {% csrf_token %} {{ form.non_field_errors }} {% for field in form %}
+      <!-- ユーザーネームやパスワード -->
+      {{field.label}} {{field}}
+      <!-- エラー処理 -->
+      {{field.errors}}
+      <br />
+      {% endfor %}
+
+      <button type="submit" class="btn btn-primary">ログイン</button>
+      <br />
+      <br />
+    </form>
+  </div>
+</div>
+
+{% endblock %}
